@@ -1,13 +1,9 @@
-var applyProperties = require("./apply-properties")
+import applyProperties from './apply-properties';
+import isWidget from '../vnode/is-widget';
+import VPatch from '../vnode/vpatch';
+import updateWidget from './update-widget';
 
-var isWidget = require("../vnode/is-widget.js")
-var VPatch = require("../vnode/vpatch.js")
-
-var updateWidget = require("./update-widget")
-
-module.exports = applyPatch
-
-function applyPatch(vpatch, domNode, renderOptions) {
+default export function applyPatch(vpatch, domNode, renderOptions) {
     var type = vpatch.type
     var vNode = vpatch.vNode
     var patch = vpatch.patch

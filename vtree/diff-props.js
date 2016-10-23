@@ -1,9 +1,8 @@
-var isObject = require("is-object")
-var isHook = require("../vnode/is-vhook")
+import isObject from 'is-object';
+import isHook from '../vnode/is-vhook';
 
-module.exports = diffProps
 
-function diffProps(a, b) {
+export default function diffProps(a, b) {
     var diff
 
     for (var aKey in a) {

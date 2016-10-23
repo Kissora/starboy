@@ -1,12 +1,10 @@
-var document = require("global/document")
-var isArray = require("x-is-array")
+import doc from 'global/document';
+import isArray from 'x-is-array';
+import render from './create-element';
+import domIndex from './dom-index';
+import patchOp from './patch-op';
 
-var render = require("./create-element")
-var domIndex = require("./dom-index")
-var patchOp = require("./patch-op")
-module.exports = patch
-
-function patch(rootNode, patches, renderOptions) {
+export default function patch(rootNode, patches, renderOptions) {
     renderOptions = renderOptions || {}
     renderOptions.patch = renderOptions.patch && renderOptions.patch !== patch
         ? renderOptions.patch
@@ -26,7 +24,7 @@ function patchRecursive(rootNode, patches, renderOptions) {
     var index = domIndex(rootNode, patches.a, indices)
     var ownerDocument = rootNode.ownerDocument
 
-    if (!renderOptions.document && ownerDocument !== document) {
+    if (!renderOptions.document && ownerDocument !== doc) {
         renderOptions.document = ownerDocument
     }
 

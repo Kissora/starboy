@@ -1,7 +1,5 @@
-var version = require("./version")
+import version from './version';
 
-module.exports = isVirtualText
-
-function isVirtualText(x) {
+export default function isVirtualText(x) {
     return x && x.type === "VirtualText" && x.version === version
 }

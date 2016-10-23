@@ -1,8 +1,6 @@
-var version = require("./version")
+import version from './version';
 
-module.exports = VirtualText
-
-function VirtualText(text) {
+export default function VirtualText(text) {
     this.text = String(text)
 }
 

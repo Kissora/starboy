@@ -1,11 +1,9 @@
-var isVNode = require("./is-vnode")
-var isVText = require("./is-vtext")
-var isWidget = require("./is-widget")
-var isThunk = require("./is-thunk")
+import isVNode from './is-vnode';
+import isVText from './is-vtext';
+import isWidget from './is-widget';
+import isThunk from './is-thunk';
 
-module.exports = handleThunk
-
-function handleThunk(a, b) {
+export default function handleThunk(a, b) {
     var renderedA = a
     var renderedB = b
 

@@ -1,9 +1,7 @@
-var isObject = require("is-object")
-var isHook = require("../vnode/is-vhook.js")
+import isObject from 'is-object';
+import isHook from '../vnode/is-vhook';
 
-module.exports = applyProperties
-
-function applyProperties(node, props, previous) {
+export default function applyProperties(node, props, previous) {
     for (var propName in props) {
         var propValue = props[propName]
 

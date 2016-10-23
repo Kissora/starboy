@@ -1,15 +1,13 @@
-var version = require("./version")
-var isVNode = require("./is-vnode")
-var isWidget = require("./is-widget")
-var isThunk = require("./is-thunk")
-var isVHook = require("./is-vhook")
-
-module.exports = VirtualNode
+import version from './version';
+import isVNode from './is-vnode';
+import isWidget from './is-widget';
+import isThunk from './is-thunk';
+import isVHook from './is-vhook';
 
 var noProperties = {}
 var noChildren = []
 
-function VirtualNode(tagName, properties, children, key, namespace) {
+export default function VirtualNode(tagName, properties, children, key, namespace) {
     this.tagName = tagName
     this.properties = properties || noProperties
     this.children = children || noChildren

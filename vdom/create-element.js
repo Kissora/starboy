@@ -1,16 +1,12 @@
-var document = require("global/document")
+import doc from './global/document';
+import applyProperties from './apply-properties';
+import isVNode from '../vnode/is-vnode';
+import isVText from '../vnode/is-vtext';
+import isWidget from '../vnode/is-widget';
+import handleThunk from '../vnode/handle-thunk';
 
-var applyProperties = require("./apply-properties")
-
-var isVNode = require("../vnode/is-vnode.js")
-var isVText = require("../vnode/is-vtext.js")
-var isWidget = require("../vnode/is-widget.js")
-var handleThunk = require("../vnode/handle-thunk.js")
-
-module.exports = createElement
-
-function createElement(vnode, opts) {
-    var doc = opts ? opts.document || document : document
+default export function createElement(vnode, opts) {
+    var doc = opts ? opts.document || document : doc
     var warn = opts ? opts.warn : null
 
     vnode = handleThunk(vnode).a

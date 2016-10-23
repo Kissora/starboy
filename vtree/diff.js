@@ -1,15 +1,11 @@
-var isArray = require("x-is-array")
-
-var VPatch = require("../vnode/vpatch")
-var isVNode = require("../vnode/is-vnode")
-var isVText = require("../vnode/is-vtext")
-var isWidget = require("../vnode/is-widget")
-var isThunk = require("../vnode/is-thunk")
-var handleThunk = require("../vnode/handle-thunk")
-
-var diffProps = require("./diff-props")
-
-module.exports = diff
+import isArray from 'x-is-array';
+import VPatch from '../vnode/vpatch';
+import isVNode from '../vnode/is-vnode';
+import isVText from '../vnode/is-vtext';
+import isWidget from '../vnode/is-widget';
+import isThunk from '../vnode/is-thunk';
+import handleThunk from '../vnode/handle-thunk';
+import diffProps from './diff-props';
 
 function diff(a, b) {
     var patch = { a: a }
@@ -425,3 +421,6 @@ function appendPatch(apply, patch) {
         return patch
     }
 }
+
+
+export default diff;

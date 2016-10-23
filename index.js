@@ -1,13 +1,13 @@
-var diff = require("./diff.js")
-var patch = require("./patch.js")
-var create = require("./create-element.js")
-var VNode = require('./vnode/vnode.js')
-var VText = require('./vnode/vtext.js')
+import diff from './vtree/diff';
+import patch from './vdom/patch';
+import create from './vdom/create-element';
+import VNode from './vnode/vnode';
+import VText from './vnode/vtext';
 
-module.exports = {
-    diff: diff,
-    patch: patch,
-    create: create,
-    VNode: VNode,
-    VText: VText
+export default {
+	diff,
+	patch,
+	create,
+	VNode,
+	VText
 }
