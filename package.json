@@ -1,6 +1,6 @@
 {
   "name": "starboy",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A virtual DOM based on virtual-dom",
   "keywords": [
     "virtual",
@@ -62,7 +62,6 @@
   "testling": {
     "files": "test/*.js",
     "browsers": [
-      "ie/8..latest",
       "firefox/17..latest",
       "firefox/nightly",
       "chrome/22..latest",
