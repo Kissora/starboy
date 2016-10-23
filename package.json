@@ -1,7 +1,7 @@
 {
-  "name": "virtual-dom",
-  "version": "2.1.1",
-  "description": "A batched diff-based DOM rendering strategy",
+  "name": "starboy",
+  "version": "0.0.1",
+  "description": "A virtual DOM based on virtual-dom",
   "keywords": [
     "virtual",
     "dom",
@@ -11,18 +11,13 @@
     "patch",
     "browser"
   ],
-  "author": "Matt-Esch <matt@mattesch.info>",
-  "repository": "git://github.com/Matt-Esch/virtual-dom.git",
+  "author": "Julien Etienne",
+  "repository": "git@github.com:julienetie/starboy.git",
   "main": "index",
-  "homepage": "https://github.com/Matt-Esch/virtual-dom",
-  "contributors": [
-    {
-      "name": "Matt-Esch"
-    }
-  ],
+  "homepage": "https://github.com/julienetie/starboy",
   "bugs": {
-    "url": "https://github.com/Matt-Esch/virtual-dom/issues",
-    "email": "matt@mattesch.info"
+    "url": "https://github.com/julienetie/starboy/issues",
+    "email": "j8@protonmail.ch"
   },
   "dependencies": {
     "browser-split": "0.0.1",

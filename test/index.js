@@ -10,5 +10,4 @@ require("./non-string.js")
 
 require("../vdom/test/")
 require("../vtree/test/")
-require("../virtual-hyperscript/test/")
 require("../vnode/test/")
