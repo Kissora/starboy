@@ -3,7 +3,7 @@ import isWidget from '../vnode/is-widget';
 import VPatch from '../vnode/vpatch';
 import updateWidget from './update-widget';
 
-default export function applyPatch(vpatch, domNode, renderOptions) {
+export default function applyPatch(vpatch, domNode, renderOptions) {
     var type = vpatch.type
     var vNode = vpatch.vNode
     var patch = vpatch.patch

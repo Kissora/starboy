@@ -7,13 +7,13 @@ export default {
     plugins: [
         babel({
             babelrc: false,
-            exclude: 'node_modules/**'
+            presets: 'es2015-rollup'
         }),
         nodeResolve({
             jsnext: true,
             main: true
         })
     ],
-    format: 'es',
-    dest: 'dist/starboy.es.js'
+    format: 'umd',
+    dest: 'dist/starboy.js'
 };

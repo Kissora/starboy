@@ -8,7 +8,7 @@ var noChild = {}
 
 
 
-default export function domIndex(rootNode, tree, indices, nodes) {
+export default function domIndex(rootNode, tree, indices, nodes) {
     if (!indices || indices.length === 0) {
         return {}
     } else {

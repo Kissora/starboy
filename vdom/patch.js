@@ -1,8 +1,12 @@
-import doc from 'global/document';
-import isArray from 'x-is-array';
+// import doc from 'global/document';
 import render from './create-element';
 import domIndex from './dom-index';
 import patchOp from './patch-op';
+
+
+function isArray(obj) {
+    return toString.call(obj) === "[object Array]"
+}
 
 export default function patch(rootNode, patches, renderOptions) {
     renderOptions = renderOptions || {}

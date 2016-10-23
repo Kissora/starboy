@@ -30,10 +30,13 @@
     "x-is-string": "0.1.0"
   },
   "devDependencies": {
+    "babel-preset-es2015-rollup": "^1.2.0",
     "browserify": "^9.0.7",
     "istanbul": "^0.3.13",
     "min-document": "^2.14.0",
     "opn": "^1.0.1",
+    "rollup-plugin-babel": "^2.6.1",
+    "rollup-plugin-node-resolve": "^2.0.0",
     "run-browser": "^2.0.2",
     "tap-dot": "^1.0.0",
     "tap-spec": "^3.0.0",

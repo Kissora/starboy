@@ -1,4 +1,4 @@
-import isArray from 'x-is-array';
+
 import VPatch from '../vnode/vpatch';
 import isVNode from '../vnode/is-vnode';
 import isVText from '../vnode/is-vtext';
@@ -6,6 +6,10 @@ import isWidget from '../vnode/is-widget';
 import isThunk from '../vnode/is-thunk';
 import handleThunk from '../vnode/handle-thunk';
 import diffProps from './diff-props';
+
+function isArray(obj) {
+    return toString.call(obj) === "[object Array]"
+}
 
 function diff(a, b) {
     var patch = { a: a }
