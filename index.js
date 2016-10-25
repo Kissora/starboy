@@ -1,8 +1,8 @@
-import diff from './vtree/diff';
-import patch from './vdom/patch';
-import create from './vdom/create-element';
-import VNode from './vnode/vnode';
-import VText from './vnode/vtext';
+import diff from './src/vtree/diff';
+import patch from './src/vdom/patch';
+import create from './src/vdom/create-element';
+import VNode from './src/vnode/vnode';
+import VText from './src/vnode/vtext';
 
 export default {
 	diff,

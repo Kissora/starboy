@@ -3,7 +3,7 @@ import nodeResolve from 'rollup-plugin-node-resolve';
 
 export default {
     moduleName: 'starboy',
-    entry: './index.js',
+    entry: 'index.js',
     plugins: [
         babel({
             babelrc: false,
