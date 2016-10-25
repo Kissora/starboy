@@ -3,6 +3,7 @@ import render from './create-element';
 import domIndex from './dom-index';
 import patchOp from './patch-op';
 
+var doc = document;
 
 function isArray(obj) {
     return toString.call(obj) === "[object Array]"

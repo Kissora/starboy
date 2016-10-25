@@ -6,7 +6,8 @@ import isWidget from '../vnode/is-widget';
 import handleThunk from '../vnode/handle-thunk';
 
 export default function createElement(vnode, opts) {
-    var doc = opts ? opts.document || document : doc
+    // var doc = opts ? opts.document || document : doc
+    var doc = document;
     var warn = opts ? opts.warn : null
 
     vnode = handleThunk(vnode).a
