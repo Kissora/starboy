@@ -1,4 +1,4 @@
-import isWidget from '../vnode/is-widget';
+import { isWidget } from '../utilities/conditions';
 
 export default function updateWidget(a, b) {
     if (isWidget(a) && isWidget(b)) {

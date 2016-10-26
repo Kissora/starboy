@@ -29,6 +29,7 @@
     "global": "^4.3.0",
     "hypertext": "^1.0.7",
     "is-object": "^1.0.1",
+    "lodash-es": "^4.16.4",
     "next-tick": "^0.2.2",
     "x-is-array": "0.1.0",
     "x-is-string": "0.1.0"
@@ -53,7 +54,7 @@
     "build": "rollup -c",
     "watch": "rollup -c --watch",
     "play": "./node_modules/.bin/wzrd  playground.js | ./node_modules/.bin/wtch | ./node_modules/.bin/garnish",
-    "test": "mocha --compilers js:babel-register --recursive"
+    "test": "./node_modules/.bin/mocha --compilers js:babel-register --recursive"
   },
   "testling": {
     "files": "test/*.js",
@@ -68,6 +69,11 @@
       "ipad/6.0..latest",
       "iphone/6.0..latest",
       "android-browser/4.2..latest"
+    ]
+  },
+   "babel": {
+    "presets": [
+      "es2015"
     ]
   }
 }

@@ -1,9 +1,6 @@
-// import doc from 'global/document';
 import render from './create-element';
 import domIndex from './dom-index';
 import patchOp from './patch-op';
-
-var doc = document;
 
 function isArray(obj) {
     return toString.call(obj) === "[object Array]"
@@ -29,7 +26,7 @@ function patchRecursive(rootNode, patches, renderOptions) {
     var index = domIndex(rootNode, patches.a, indices)
     var ownerDocument = rootNode.ownerDocument
 
-    if (!renderOptions.document && ownerDocument !== doc) {
+    if (!renderOptions.document && ownerDocument !== document) {
         renderOptions.document = ownerDocument
     }
 

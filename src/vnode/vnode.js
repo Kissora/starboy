@@ -2,7 +2,7 @@ import version from './version';
 import isVNode from './is-vnode';
 import isWidget from './is-widget';
 import isThunk from './is-thunk';
-import isVHook from './is-vhook';
+import { isVHook } from '../utilities/conditions';
 
 var noProperties = {}
 var noChildren = []

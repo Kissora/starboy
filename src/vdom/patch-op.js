@@ -1,5 +1,5 @@
 import applyProperties from './apply-properties';
-import isWidget from '../vnode/is-widget';
+import { isWidget } from '../utilities/conditions';
 import VPatch from '../vnode/vpatch';
 import updateWidget from './update-widget';
 

@@ -1,4 +1,4 @@
-import isHook from '../vnode/is-vhook';
+import isHook from '../utilities/conditions';
 
 
 function isObject(x) {

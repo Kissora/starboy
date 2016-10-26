@@ -1,9 +1,9 @@
 // import doc from './global/document';
 import applyProperties from './apply-properties';
-import isVNode from '../vnode/is-vnode';
-import isVText from '../vnode/is-vtext';
-import isWidget from '../vnode/is-widget';
-import handleThunk from '../vnode/handle-thunk';
+import isVNode from '../utilities/conditions';
+import isVText from '../utilities/conditions';
+import isWidget from '../utilities/conditions';
+import handleThunk from '../utilities/conditions';
 
 export default function createElement(vnode, opts) {
     // var doc = opts ? opts.document || document : doc
