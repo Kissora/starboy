@@ -1,9 +1,6 @@
 
 import { isHook } from '../utilities/conditions';
-
-function isObject(x) {
-    return typeof x === 'object' && x !== null;
-};
+import isPlainObject from '../../libs/isPlainObject';
 
 export default function diffProps(a, b) {
     var diff
@@ -19,7 +16,7 @@ export default function diffProps(a, b) {
 
         if (aValue === bValue) {
             continue
-        } else if (isObject(aValue) && isObject(bValue)) {
+        } else if (isPlainObject(aValue) && isPlainObject(bValue)) {
             if (getPrototype(bValue) !== getPrototype(aValue)) {
                 diff = diff || {}
                 diff[aKey] = bValue

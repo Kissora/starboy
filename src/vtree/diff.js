@@ -6,10 +6,8 @@ import { isWidget } from '../utilities/conditions';
 import { isThunk } from '../utilities/conditions';
 import handleThunk from '../vnode/handle-thunk';
 import diffProps from './diff-props';
+import isArray from '../../libs/isArray';
 
-function isArray(obj) {
-    return toString.call(obj) === "[object Array]"
-}
 
 function diff(a, b) {
     var patch = { a: a }
