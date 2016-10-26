@@ -1,7 +1,7 @@
 {
   "name": "starboy",
   "version": "0.0.3",
-  "description": "A virtual DOM based on virtual-dom",
+  "description": "A virtual DOM for Hypetext based on virtual-dom",
   "keywords": [
     "virtual",
     "dom",
