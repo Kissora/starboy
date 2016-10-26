@@ -1,7 +1,7 @@
-import isVNode from './is-vnode';
-import isVText from './is-vtext';
-import isWidget from './is-widget';
-import isThunk from './is-thunk';
+import { isVirtualNode }  from '../utilities/conditions';
+import { isVirtualText }  from '../utilities/conditions';
+import { isWidget } from '../utilities/conditions';
+import { isThunk } from '../utilities/conditions';
 
 export default function handleThunk(a, b) {
     var renderedA = a
@@ -28,8 +28,8 @@ function renderThunk(thunk, previous) {
         renderedThunk = thunk.vnode = thunk.render(previous)
     }
 
-    if (!(isVNode(renderedThunk) ||
-            isVText(renderedThunk) ||
+    if (!(isVirtualNode(renderedThunk) ||
+            isVirtualText(renderedThunk) ||
             isWidget(renderedThunk))) {
         throw new Error("thunk did not return a valid node");
     }

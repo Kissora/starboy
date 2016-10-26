@@ -1,7 +1,7 @@
 import version from './version';
-import isVNode from './is-vnode';
-import isWidget from './is-widget';
-import isThunk from './is-thunk';
+import { isVirtualNode }  from '../utilities/conditions';
+import { isWidget }  from '../utilities/conditions';
+import { isThunk } from '../utilities/conditions';
 import { isHook } from '../utilities/conditions';
 
 var noProperties = {}
@@ -36,7 +36,7 @@ export default function VirtualNode(tagName, properties, children, key, namespac
 
     for (var i = 0; i < count; i++) {
         var child = children[i]
-        if (isVNode(child)) {
+        if (isVirtualNode(child)) {
             descendants += child.count || 0
 
             if (!hasWidgets && child.hasWidgets) {

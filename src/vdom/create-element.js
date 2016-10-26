@@ -3,7 +3,6 @@ import applyProperties from './apply-properties';
 import { isVirtualNode }  from '../utilities/conditions';
 import { isVirtualText }  from '../utilities/conditions';
 import { isWidget } from '../utilities/conditions';
-
 import handleThunk  from '../vnode/handle-thunk';
 
 export default function createElement(vnode, opts) {

@@ -1,6 +1,5 @@
 import { isHook } from '../utilities/conditions';
 
-
 function isObject(x) {
     return typeof x === 'object' && x !== null;
 };

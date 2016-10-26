@@ -1,9 +1,9 @@
 
 import VPatch from '../vnode/vpatch';
-import isVNode from '../vnode/is-vnode';
-import isVText from '../vnode/is-vtext';
-import isWidget from '../vnode/is-widget';
-import isThunk from '../vnode/is-thunk';
+import { isVirtualNode }  from '../utilities/conditions';
+import { isVirtualText }  from '../utilities/conditions';
+import { isWidget } from '../utilities/conditions';
+import { isThunk } from '../utilities/conditions';
 import handleThunk from '../vnode/handle-thunk';
 import diffProps from './diff-props';
 
@@ -38,8 +38,8 @@ function walk(a, b, patch, index) {
         }
 
         apply = appendPatch(apply, new VPatch(VPatch.REMOVE, a, b))
-    } else if (isVNode(b)) {
-        if (isVNode(a)) {
+    } else if (isVirtualNode(b)) {
+        if (isVirtualNode(a)) {
             if (a.tagName === b.tagName &&
                 a.namespace === b.namespace &&
                 a.key === b.key) {
@@ -57,8 +57,8 @@ function walk(a, b, patch, index) {
             apply = appendPatch(apply, new VPatch(VPatch.VNODE, a, b))
             applyClear = true
         }
-    } else if (isVText(b)) {
-        if (!isVText(a)) {
+    } else if (isVirtualText(b)) {
+        if (!isVirtualText(a)) {
             apply = appendPatch(apply, new VPatch(VPatch.VTEXT, a, b))
             applyClear = true
         } else if (a.text !== b.text) {
@@ -105,7 +105,7 @@ function diffChildren(a, b, patch, apply, index) {
             walk(leftNode, rightNode, patch, index)
         }
 
-        if (isVNode(leftNode) && leftNode.count) {
+        if (isVirtualNode(leftNode) && leftNode.count) {
             index += leftNode.count
         }
     }
@@ -138,7 +138,7 @@ function destroyWidgets(vNode, patch, index) {
                 new VPatch(VPatch.REMOVE, vNode, null)
             )
         }
-    } else if (isVNode(vNode) && (vNode.hasWidgets || vNode.hasThunks)) {
+    } else if (isVirtualNode(vNode) && (vNode.hasWidgets || vNode.hasThunks)) {
         var children = vNode.children
         var len = children.length
         for (var i = 0; i < len; i++) {
@@ -147,7 +147,7 @@ function destroyWidgets(vNode, patch, index) {
 
             destroyWidgets(child, patch, index)
 
-            if (isVNode(child) && child.count) {
+            if (isVirtualNode(child) && child.count) {
                 index += child.count
             }
         }
@@ -177,7 +177,7 @@ function hasPatches(patch) {
 
 // Execute hooks when two nodes are identical
 function unhook(vNode, patch, index) {
-    if (isVNode(vNode)) {
+    if (isVirtualNode(vNode)) {
         if (vNode.hooks) {
             patch[index] = appendPatch(
                 patch[index],
@@ -198,7 +198,7 @@ function unhook(vNode, patch, index) {
 
                 unhook(child, patch, index)
 
-                if (isVNode(child) && child.count) {
+                if (isVirtualNode(child) && child.count) {
                     index += child.count
                 }
             }
