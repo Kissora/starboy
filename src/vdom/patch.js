@@ -1,7 +1,7 @@
 import render from './create-element';
 import domIndex from './dom-index';
 import patchOp from './patch-op';
-
+    
 function isArray(obj) {
     return toString.call(obj) === "[object Array]"
 }

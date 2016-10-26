@@ -1,9 +1,10 @@
 // import doc from './global/document';
 import applyProperties from './apply-properties';
-import isVNode from '../utilities/conditions';
-import isVText from '../utilities/conditions';
-import isWidget from '../utilities/conditions';
-import handleThunk from '../utilities/conditions';
+import { isVirtualNode }  from '../utilities/conditions';
+import { isVirtualText }  from '../utilities/conditions';
+import { isWidget } from '../utilities/conditions';
+
+import handleThunk  from '../vnode/handle-thunk';
 
 export default function createElement(vnode, opts) {
     // var doc = opts ? opts.document || document : doc
@@ -14,9 +15,9 @@ export default function createElement(vnode, opts) {
 
     if (isWidget(vnode)) {
         return vnode.init()
-    } else if (isVText(vnode)) {
+    } else if (isVirtualText(vnode)) {
         return doc.createTextNode(vnode.text)
-    } else if (!isVNode(vnode)) {
+    } else if (!isVirtualNode(vnode)) {
         if (warn) {
             warn("Item is not a valid virtual dom node", vnode)
         }

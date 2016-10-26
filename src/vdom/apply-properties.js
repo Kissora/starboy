@@ -1,4 +1,4 @@
-import isHook from '../utilities/conditions';
+import { isHook } from '../utilities/conditions';
 
 
 function isObject(x) {

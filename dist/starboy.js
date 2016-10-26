@@ -1,7 +1,7 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-	typeof define === 'function' && define.amd ? define(factory) :
-	(global.starboy = factory());
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+  typeof define === 'function' && define.amd ? define(factory) :
+  (global.starboy = factory());
 }(this, (function () { 'use strict';
 
 var version = "2";
@@ -71,10 +71,6 @@ function renderThunk(thunk, previous) {
     }
 
     return renderedThunk;
-}
-
-function isHook(hook) {
-  return hook && (typeof hook.hook === "function" && !hook.hasOwnProperty("hook") || typeof hook.unhook === "function" && !hook.hasOwnProperty("unhook"));
 }
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
@@ -275,6 +271,23 @@ var set = function set(object, property, value, receiver) {
   }
 
   return value;
+};
+
+/** Detect free variable `global` from Node.js. */
+var freeGlobal = (typeof global === 'undefined' ? 'undefined' : _typeof(global)) == 'object' && global && global.Object === Object && global;
+
+/** Detect free variable `self`. */
+var freeSelf = (typeof self === 'undefined' ? 'undefined' : _typeof(self)) == 'object' && self && self.Object === Object && self;
+
+/** Used as a reference to the global object. */
+var root = freeGlobal || freeSelf || Function('return this')();
+
+var isHook = function isHook(hook) {
+	return hook && (typeof hook.hook === "function" && !hook.hasOwnProperty("hook") || typeof hook.unhook === "function" && !hook.hasOwnProperty("unhook"));
+};
+
+var isWidget$1 = function isWidget$1(widget) {
+	return widget && widget.type === "Widget";
 };
 
 function isObject(x) {
@@ -826,7 +839,8 @@ function getPrototype$1(value) {
 
 // import doc from './global/document';
 function createElement(vnode, opts) {
-    var doc = opts ? opts.document || document : doc;
+    // var doc = opts ? opts.document || document : doc
+    var doc = document;
     var warn = opts ? opts.warn : null;
 
     vnode = handleThunk(vnode).a;
@@ -943,7 +957,7 @@ function ascending(a, b) {
 }
 
 function updateWidget(a, b) {
-    if (isWidget(a) && isWidget(b)) {
+    if (isWidget$1(a) && isWidget$1(b)) {
         if ("name" in a && "name" in b) {
             return a.id === b.id;
         } else {
@@ -1058,7 +1072,7 @@ function vNodePatch(domNode, leftVNode, vNode, renderOptions) {
 }
 
 function destroyWidget(domNode, w) {
-    if (typeof w.destroy === "function" && isWidget(w)) {
+    if (typeof w.destroy === "function" && isWidget$1(w)) {
         w.destroy(domNode);
     }
 }
@@ -1096,8 +1110,7 @@ function replaceRoot(oldRoot, newRoot) {
     return newRoot;
 }
 
-// import doc from 'global/document';
-function isArray$1(obj) {
+function isArray$3(obj) {
     return toString.call(obj) === "[object Array]";
 }
 
@@ -1119,7 +1132,7 @@ function patchRecursive(rootNode, patches, renderOptions) {
     var index = domIndex(rootNode, patches.a, indices);
     var ownerDocument = rootNode.ownerDocument;
 
-    if (!renderOptions.document && ownerDocument !== doc) {
+    if (!renderOptions.document && ownerDocument !== document) {
         renderOptions.document = ownerDocument;
     }
 
@@ -1138,7 +1151,7 @@ function applyPatch(rootNode, domNode, patchList, renderOptions) {
 
     var newNode;
 
-    if (isArray$1(patchList)) {
+    if (isArray$3(patchList)) {
         for (var i = 0; i < patchList.length; i++) {
             newNode = applyPatch$1(patchList[i], domNode, renderOptions);
 
