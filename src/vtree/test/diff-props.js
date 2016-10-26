@@ -1,20 +1,20 @@
 var test = require("tape")
 var diffProps = require("../diff-props")
 
-test("add attributes to empty attributes", function (assert) {
-    var propsA = {
-      attributes : {}
-    }
-    var propsB = {
-        attributes : {
-            class : "standard",
-            "e-text" : "custom"
+describe('diff-props', () => {
+    test("add attributes to empty attributes", () => {
+        const propsA = {
+          attributes : {}
         }
-    }
+        const propsB = {
+            attributes : {
+                class : "standard",
+                "e-text" : "custom"
+            }
+        }
+        const diff = diffProps(propsA,propsB)
 
-    var diff = diffProps(propsA,propsB)
-    assert.equal(diff.attributes.class, "standard")
-    assert.equal(diff.attributes["e-text"], "custom")
-
-    assert.end()
-})
+        expect(diff.attributes.class).to.equal('standard');
+        expect(diff.attributes['e-text']).to.equal('custom');
+    })
+});
